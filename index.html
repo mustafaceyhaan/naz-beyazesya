@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naz Beyaz Eşya & Mobilya</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0f172a',
+                            gold: '#d97706',
+                            sahibinden: '#f2c400',
+                            light: '#f8fafc'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 antialiased">
+
+    <script>
+        const MAGAZA = {
+            tel: "+905362031749", 
+            whatsappMesaj: "Merhaba, şu ürünle ilgileniyorum: "
+        };
+
+        const URUNLER = [
+            {
+                id: 1, 
+                ad: "Bekara, Memura, Apart ve Otel Odalarına Toplu Eşya", 
+                kategori: "Toplu Ev Eşyası", 
+                fiyat: "49.000 ₺",
+                sahibindenLink: "https://www.sahibinden.com/ilan/ikinci-el-ve-sifir-alisveris-ev-dekorasyon-toplu-satis-bekara-memura-apart-evlere-otel-odalari-toplu-ev-esyasi-1286063819/detay/", 
+                resimler: [
+                    "gorseller/topluev-1.png",  
+                    "gorseller/topluev-2.png", 
+                    "gorseller/topluev-3.png", 
+                    "gorseller/topluev-4.png", 
+                    "gorseller/topluev-5.png", 
+                    "gorseller/topluev-6.png"
+                ],
+                ozellik: "Kampanya"
+            },
+            {
+                id: 2,
+                ad: "Komple Sıfır Ev Eşyası",
+                kategori: "Toplu Ev Eşyası",
+                fiyat: "49.000 ₺",
+                sahibindenLink: "https://www.sahibinden.com/ilan/ikinci-el-ve-sifir-alisveris-ev-dekorasyon-toplu-satis-komple-sifir-ev-esyasi-1286419258/detay/",
+                resimler: [
+                    "gorseller/komplesifir-1.png",  
+                    "gorseller/komplesifir-2.png", 
+                    "gorseller/komplesifir-3.png", 
+                    "gorseller/komplesifir-4.png", 
+                    "gorseller/komplesifir-5.png", 
+                    "gorseller/komplesifir-6.png"
+                ],
+                ozellik: "Kampanya"
+            }
+        ];
+    </script>
+
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="logo.png" alt="Logo" class="h-12 w-auto object-contain">
+                    <span class="font-bold text-xl md:text-2xl text-brand-blue tracking-tight">Naz<span class="text-brand-gold">BeyazEşya&Mobilya</span></span>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-brand-gold font-medium transition">Ana Sayfa</a>
+                    <a href="#hizmetler" class="text-gray-700 hover:text-brand-gold font-medium transition">Hizmetler</a>
+                    <a href="#vitrin" class="text-gray-700 hover:text-brand-gold font-medium transition">Vitrin</a>
+                    <a href="#iletisim" class="text-gray-700 hover:text-brand-gold font-medium transition">İletişim</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="tel:+905362031749" class="hidden md:flex bg-brand-blue text-white px-5 py-2.5 rounded-full font-semibold hover:bg-gray-800 transition items-center gap-2">
+                        <i class="fa-solid fa-phone"></i> <span class="text-sm">Hemen Ara</span>
+                    </a>
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-brand-blue focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#home" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-gold hover:bg-gray-50 rounded-md">Ana Sayfa</a>
+                <a href="#hizmetler" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-gold hover:bg-gray-50 rounded-md">Hizmetler</a>
+                <a href="#vitrin" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-gold hover:bg-gray-50 rounded-md">Vitrin</a>
+                <a href="#iletisim" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-gold hover:bg-gray-50 rounded-md">İletişim</a>
+                <a href="tel:+905362031749" class="block w-full text-center mt-4 bg-brand-blue text-white px-3 py-3 rounded-lg font-bold">
+                    <i class="fa-solid fa-phone mr-2"></i> Hemen Ara
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4 pt-16">
+        <div class="max-w-4xl text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+                Evinizin Tüm İhtiyaçları <br> <span class="text-brand-gold">Tek Adreste</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-100 mb-10 font-light drop-shadow-md">
+                En yeni beyaz eşyalar ve konforlu mobilyalar. <br class="hidden md:block">
+                İstanbul içi ücretsiz nakliye ve kurulum avantajıyla.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center px-6">
+                <a href="#vitrin" class="bg-brand-gold text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-600 transition shadow-lg w-full md:w-auto">
+                    Ürünleri İncele
+                </a>
+                <a href="https://wa.me/905362031749" target="_blank" class="bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition shadow-lg flex items-center justify-center gap-2 w-full md:w-auto">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="hizmetler" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-blue">Hizmetlerimiz</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition text-center group bg-white">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-blue transition duration-300">
+                        <i class="fa-solid fa-truck text-2xl text-brand-blue group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">İstanbul İçi Ücretsiz Nakliye</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">İstanbul'un her noktasına siparişlerinizi ücretsiz ve güvenle teslim ediyoruz.</p>
+                </div>
+                <div class="p-8 border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition text-center group bg-white">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-blue transition duration-300">
+                        <i class="fa-solid fa-screwdriver-wrench text-2xl text-brand-blue group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Ücretsiz Kurulum</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Beyaz eşya ve mobilyalarınız uzman ekibimiz tarafından ücretsiz kurulur.</p>
+                </div>
+                <div class="p-8 border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition text-center group bg-white">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-blue transition duration-300">
+                        <i class="fa-solid fa-map-location-dot text-2xl text-brand-blue group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Şehir Dışı Gönderim</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Şehir dışı siparişlerinizde uygun nakliye çözümleri için bizi arayın.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="vitrin" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-blue">Vitrin Ürünleri</h2>
+                <p class="text-gray-500 mt-2">Mağazamızdan seçkin ürünler</p>
+            </div>
+            <div id="urun-listesi" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                </div>
+        </div>
+    </div>
+
+    <footer id="iletisim" class="bg-brand-blue text-white py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-10 text-center md:text-left">
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Naz<span class="text-brand-gold">BeyazEşya&Mobilya</span></h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Kalite ve güvenin adresi. Evinizi yenilemek için en doğru tercih.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">İletişim Bilgileri</h4>
+                <ul class="space-y-4 text-gray-400 text-sm">
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3">
+                        <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
+                        <span>Hasanpaşa, Fatih Bulvarı No:4, 34920<br>Ümraniye, İstanbul</span>
+                    </li>
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3">
+                        <i class="fa-solid fa-phone text-brand-gold mt-1"></i>
+                        <span>+905362031749</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Sosyal Medya</h4>
+                <div class="flex justify-center md:justify-start gap-4">
+                    <a href="https://nazmobilyabeyazesya.sahibinden.com/" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-400 hover:text-black transition" title="Sahibinden Mağazamız">
+                    <i class="fa-solid fa-store"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/naz.beyazesya.mobilya/" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-gold transition"><i class="fa-brands fa-instagram"></i></a>
+                    
+                    <a href="https://www.tiktok.com/@tahirceyhan1" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-gold transition"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-600 text-xs">
+            &copy; 2026 Naz Beyaz Eşya & Mobilya. Tüm hakları saklıdır.
+        </div>
+    </footer>
+
+    <script>
+        const urunContainer = document.getElementById('urun-listesi');
+        
+        URUNLER.forEach(urun => {
+            
+            // 1. ADIM: Mesaj İçeriğini Hazırla (Eğer link varsa ekle)
+            let mesajIcerigi = `${MAGAZA.whatsappMesaj} ${urun.ad}`;
+            
+            if (urun.sahibindenLink && urun.sahibindenLink.length > 0) {
+                // \n yeni satır demektir. Mesajda alt satıra geçer.
+                mesajIcerigi += `\n\nİlan Linki: ${urun.sahibindenLink}`;
+            }
+
+            // 2. ADIM: WhatsApp Linkini Oluştur
+            const waLink = `https://wa.me/${MAGAZA.tel.replace(/\D/g,'')}?text=${encodeURIComponent(mesajIcerigi)}`;
+
+            const resimListesi = urun.resimler && urun.resimler.length > 0 ? urun.resimler : ['https://via.placeholder.com/400'];
+            const anaResimId = `img-main-${urun.id}`;
+
+            // Küçük Resimler
+            let kucukResimlerHTML = '';
+            if (resimListesi.length > 1) {
+                kucukResimlerHTML = '<div class="flex gap-2 p-4 pt-0 overflow-x-auto pb-2">';
+                resimListesi.forEach(imgSrc => {
+                    kucukResimlerHTML += `
+                        <img src="${imgSrc}" 
+                             onclick="document.getElementById('${anaResimId}').src='${imgSrc}'" 
+                             class="w-14 h-14 object-cover rounded-md cursor-pointer border border-gray-200 hover:border-brand-gold transition flex-shrink-0"
+                        >
+                    `;
+                });
+                kucukResimlerHTML += '</div>';
+            }
+
+            // Sahibinden Buton Kontrolü
+            let sahibindenBtnHTML = '';
+            if (urun.sahibindenLink && urun.sahibindenLink.length > 0) {
+                sahibindenBtnHTML = `
+                    <a href="${urun.sahibindenLink}" target="_blank" class="bg-yellow-100 text-yellow-700 hover:bg-yellow-400 hover:text-gray-900 px-3 py-2.5 rounded-lg text-sm font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-store"></i> Sahibinden
+                    </a>
+                `;
+            }
+
+            const html = `
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group flex flex-col h-full border border-gray-100">
+                    
+                    <div class="relative w-full h-80 bg-gray-50 p-2 flex items-center justify-center">
+                        <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10">
+                            ${urun.kategori}
+                        </span>
+                        <img id="${anaResimId}" src="${resimListesi[0]}" alt="${urun.ad}" class="max-w-full max-h-full object-contain">
+                    </div>
+
+                    ${kucukResimlerHTML}
+
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-gray-800 mb-1 leading-tight line-clamp-2 min-h-[3rem]">${urun.ad}</h3>
+                        <p class="text-gray-500 text-xs mb-4 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check text-green-500 text-[10px]"></i> ${urun.ozellik}
+                        </p>
+                        
+                        <div class="mt-auto pt-3 border-t border-gray-100">
+                            <div class="mb-3 text-center md:text-left">
+                                <span class="text-2xl font-bold text-brand-gold">${urun.fiyat}</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-2">
+                                <a href="${waLink}" target="_blank" class="bg-green-100 text-green-700 hover:bg-green-600 hover:text-white px-3 py-2.5 rounded-lg text-sm font-bold transition flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                                </a>
+                                ${sahibindenBtnHTML}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            urunContainer.innerHTML += html;
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if(btn){
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
